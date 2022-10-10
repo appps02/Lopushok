@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SortComboBox = new System.Windows.Forms.ComboBox();
-            this.FiltComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FiltComboBox = new System.Windows.Forms.ComboBox();
+            this.SortComboBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Right = new System.Windows.Forms.Button();
             this.Left = new System.Windows.Forms.Button();
@@ -73,27 +74,23 @@
             this.panel1.Size = new System.Drawing.Size(524, 41);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Поиск";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(415, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Фильтрация";
             // 
-            // SortComboBox
+            // label1
             // 
-            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SortComboBox.FormattingEnabled = true;
-            this.SortComboBox.Items.AddRange(new object[] {
-            "Без сортировки",
-            "По названию",
-            "По цене",
-            "По артикулу"});
-            this.SortComboBox.Location = new System.Drawing.Point(251, 4);
-            this.SortComboBox.Name = "SortComboBox";
-            this.SortComboBox.Size = new System.Drawing.Size(129, 21);
-            this.SortComboBox.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(283, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Сортировка";
             // 
             // FiltComboBox
             // 
@@ -111,23 +108,27 @@
             this.FiltComboBox.Size = new System.Drawing.Size(135, 21);
             this.FiltComboBox.TabIndex = 3;
             // 
-            // label1
+            // SortComboBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(283, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Сортировка";
+            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SortComboBox.FormattingEnabled = true;
+            this.SortComboBox.Items.AddRange(new object[] {
+            "Без сортировки",
+            "По названию",
+            "По цене",
+            "По артикулу"});
+            this.SortComboBox.Location = new System.Drawing.Point(251, 4);
+            this.SortComboBox.Name = "SortComboBox";
+            this.SortComboBox.Size = new System.Drawing.Size(129, 21);
+            this.SortComboBox.TabIndex = 2;
             // 
-            // label2
+            // textBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(415, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Фильтрация";
+            this.textBox1.Location = new System.Drawing.Point(3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(242, 20);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "Поиск";
             // 
             // flowLayoutPanel1
             // 
@@ -199,8 +200,9 @@
             this.Controls.Add(this.Left);
             this.Controls.Add(this.Right);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Лопушок";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
