@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,93 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Лопушок.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Лопушок.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
