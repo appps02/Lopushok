@@ -75,7 +75,7 @@ namespace Lopushok
                     }
                     else
                     {
-                        pictureBox.Image = new Bitmap($@"C:\Users\russh\OneDrive\Рабочий стол\Lopuh\Program\{p.image}");
+                        pictureBox.Image = new Bitmap($@"E:\repos\Lopushok\{p.image}");
                     }
 
                     Label label1 = new Label();
