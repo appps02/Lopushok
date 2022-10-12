@@ -298,7 +298,11 @@ namespace Lopushok
         private void SearchtextBox_Leave(object sender, EventArgs e)
         {
             if (SearchtextBox.Text == "")
+            {
                 SearchtextBox.Text = "Поиск";
+                search = false;
+                Query(search, filtr, sort);
+            }
         }
     }
 }
