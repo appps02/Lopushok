@@ -26,7 +26,9 @@ namespace Lopushok
 
         private void AgentList_Click(object sender, EventArgs e)
         {
-
+            AgentList agentList = new AgentList(this);
+            agentList.Show();
+            this.Hide();
         }
 
         private void MaterialList_Click(object sender, EventArgs e)

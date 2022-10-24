@@ -93,6 +93,13 @@ namespace Lopushok
                                 INNER JOIN [Material] on [Material].[ID] = [ProductMaterial].[MaterialID]
                                 WHERE ProductID = {productID}");
         }
+        public DataTable ListofAgents()
+        {
+            return Data_Table(@"SELECT [Agent].[ID], [Agent].[Title], AgentTypeID, [Address], INN, KPP, DirectorName, Phone, Email, Logo, [Priority], [AgentType].[Title] AS TitleType
+            FROM [Agent]
+            INNER JOIN [AgentType] ON [AgentType].[ID] = [Agent].[AgentTypeID]");
+        }
+
         public static DataTable Data_Table(string cmd)
         {
             SqlDataAdapter adapter = new SqlDataAdapter(cmd, Connection);
