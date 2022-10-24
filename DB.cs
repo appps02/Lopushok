@@ -99,6 +99,10 @@ namespace Lopushok
             FROM [Agent]
             INNER JOIN [AgentType] ON [AgentType].[ID] = [Agent].[AgentTypeID]");
         }
+        public void SaveChanges(string title, int agentType, string address, string INN, string KPP, string directorName, string phone, string email, string logo, int priority)
+        {
+            request($"INSERT INTO [Agent] VALUES('{title}', {agentType}, '{address}', '{INN}', '{KPP}', '{directorName}', '{phone}', '{email}', '{logo}', {priority})");
+        }
 
         public static DataTable Data_Table(string cmd)
         {
@@ -106,6 +110,11 @@ namespace Lopushok
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             return dataSet.Tables[0];
+        }
+        public int request(string cmd)
+        {
+            this.cmd.CommandText = cmd;
+            return this.cmd.ExecuteNonQuery();
         }
     }
 }

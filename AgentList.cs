@@ -44,7 +44,8 @@ namespace Lopushok
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
+            AgentAdd agentAdd = new AgentAdd(dataBase, this);
+            agentAdd.ShowDialog();
         }
 
         private void AgentList_FormClosing(object sender, FormClosingEventArgs e)
