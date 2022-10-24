@@ -13,7 +13,7 @@ namespace Lopushok
     public partial class AgentList : Form
     {
         private DB dataBase = new DB();
-        private List<Agent> agents = new List<Agent>();
+        public List<Agent> agents = new List<Agent>();
         private MainWindow mainWindow;
         public AgentList(MainWindow _mainWindow)
         {
@@ -38,7 +38,8 @@ namespace Lopushok
             var senderGrid = sender as DataGridView;
             if(senderGrid.CurrentCell is DataGridViewButtonCell && e.RowIndex >= 0)
             {
-
+                AgentEdit agentEdit = new AgentEdit(this, dataBase, dataGridView1);
+                agentEdit.ShowDialog();
             }
         }
 
