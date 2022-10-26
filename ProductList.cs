@@ -77,7 +77,7 @@ namespace Lopushok
                     }
                     else
                     {
-                        pictureBox.Image = new Bitmap($@"E:\repos\Lopushok\{p.image}");
+                        pictureBox.Image = new Bitmap($@"{Application.StartupPath + p.image}");
                     }
 
                     Label label1 = new Label();
@@ -90,6 +90,14 @@ namespace Lopushok
                     label2.Location = new Point(185, 12);
                     label2.AutoSize = true;
 
+                    Button btn = new Button();
+                    btn.Text = "Редактировать";
+                    btn.Tag = p.article;
+                    btn.Location = new Point(185, 33);
+                    btn.BackColor = Color.Gainsboro;
+                    btn.AutoSize = true;
+                    btn.Click += new EventHandler(btn_Click);
+
                     Label label3 = new Label();
                     label3.Text = p.Title;
                     label3.Location = new Point(207, 11);
@@ -98,6 +106,7 @@ namespace Lopushok
                     Label label4 = new Label();
                     label4.Text = p.article.ToString();
                     label4.Location = new Point(107, 33);
+                    label4.AutoSize = true;
 
                     Label label5 = new Label();
                     label5.Text = p.cost.ToString();
@@ -122,12 +131,32 @@ namespace Lopushok
                     panel.Controls.Add(label6);
                     panel.Controls.Add(label7);
                     panel.Controls.Add(pictureBox);
+                    panel.Controls.Add(btn);
                     flowLayoutPanel1.Controls.Add(panel);
                 }
             }
             else
             {
                 nothing();
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var btn = (Button)sender;
+                DataRow row = DB.Data_Table($@"SELECT ID FROM Product WHERE ArticleNumber = '{btn.Tag.ToString()}'").Rows[0];
+                int ID = Convert.ToInt32(row["ID"]);
+                Product product = products.Where(p => p.article == Convert.ToInt32(btn.Tag)).First();
+                ProductEdit productEdit = new ProductEdit(product, ID, this.database);
+                productEdit.ShowDialog();
+                products = Product.table_class(database.Products());
+                update();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
