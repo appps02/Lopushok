@@ -59,31 +59,44 @@ namespace Lopushok
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            var text = (TextBox)sender;
             buttonSave.Enabled = check();
         }
 
         private bool check()
         {
-            if (textBoxArticleNumber.Text == "")
+            char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            if (textBoxArticleNumber.Text.Trim() == "")
+            {
                 label5.Visible = true;
+                return false;
+            }
             else
                 label5.Visible = false;
-            char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            if (textBoxCost.Text.Trim() == "")
+            {
+                label6.Text = "Пустое поле";
+                label6.Visible = true;
+                return false;
+            }
+            else
+                label6.Visible = false;
+            if (textBoxTitle.Text.Trim() == "")
+            {
+                label7.Visible = true;
+                return false;
+            }
+            else
+                label7.Visible = false;
             foreach (char i in textBoxCost.Text)
             {
                 if (!chars.Contains(i))
                 {
-                    label6.Text = "Только числа";
+                    label6.Text = "Только целые\n числа";
                     label6.Visible = true;
+                    return false;
                 }
-                else
-                    label6.Visible = false;
             }
-            if (label6.Visible == true || label5.Visible == true)
-                return false;
-            else
-                return true;
+            return true;
         }
     }
 }
