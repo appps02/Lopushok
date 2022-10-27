@@ -152,6 +152,7 @@
             // 
             this.comboBoxTypeAgent.DataSource = this.agentTypeBindingSource;
             this.comboBoxTypeAgent.DisplayMember = "Title";
+            this.comboBoxTypeAgent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeAgent.FormattingEnabled = true;
             this.comboBoxTypeAgent.Location = new System.Drawing.Point(131, 31);
             this.comboBoxTypeAgent.Name = "comboBoxTypeAgent";

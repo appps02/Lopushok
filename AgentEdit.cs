@@ -36,8 +36,7 @@ namespace Lopushok
                 MessageBox.Show("Агент не найден.");
                 this.Close();
             }
-            /*int index = comboBoxTypeAgent.Items.IndexOf(e); // Решить проблему
-            comboBoxTypeAgent.Text = comboBoxTypeAgent.Items[index].ToString();*/
+            comboBoxTypeAgent.Text = DataGridView.CurrentRow.Cells[2].Value.ToString();
             textBoxTitle.Text = agent[0].Title;
             textBoxAddress.Text = agent[0].Address;
             textBoxINN.Text = agent[0].INN;

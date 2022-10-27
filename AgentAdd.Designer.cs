@@ -39,6 +39,7 @@
             this.textBoxLogo = new System.Windows.Forms.TextBox();
             this.textBoxPriority = new System.Windows.Forms.TextBox();
             this.comboBoxTypeAgent = new System.Windows.Forms.ComboBox();
+            this.agentTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.лопушокDataSet = new Lopushok.ЛопушокDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,9 +54,8 @@
             this.buttonSaveAdd = new System.Windows.Forms.Button();
             this.buttonCancelAdd = new System.Windows.Forms.Button();
             this.agentTypeTableAdapter = new Lopushok.ЛопушокDataSetTableAdapters.AgentTypeTableAdapter();
-            this.agentTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTitle
@@ -125,12 +125,18 @@
             // 
             this.comboBoxTypeAgent.DataSource = this.agentTypeBindingSource;
             this.comboBoxTypeAgent.DisplayMember = "Title";
+            this.comboBoxTypeAgent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeAgent.FormattingEnabled = true;
             this.comboBoxTypeAgent.Location = new System.Drawing.Point(147, 70);
             this.comboBoxTypeAgent.Name = "comboBoxTypeAgent";
             this.comboBoxTypeAgent.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTypeAgent.TabIndex = 10;
             this.comboBoxTypeAgent.ValueMember = "ID";
+            // 
+            // agentTypeBindingSource
+            // 
+            this.agentTypeBindingSource.DataMember = "AgentType";
+            this.agentTypeBindingSource.DataSource = this.лопушокDataSet;
             // 
             // лопушокDataSet
             // 
@@ -251,11 +257,6 @@
             // 
             this.agentTypeTableAdapter.ClearBeforeFill = true;
             // 
-            // agentTypeBindingSource
-            // 
-            this.agentTypeBindingSource.DataMember = "AgentType";
-            this.agentTypeBindingSource.DataSource = this.лопушокDataSet;
-            // 
             // AgentAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,8 +287,8 @@
             this.Name = "AgentAdd";
             this.Text = "Лопушок - Добавление";
             this.Load += new System.EventHandler(this.AgentAdd_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
