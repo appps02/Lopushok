@@ -31,11 +31,6 @@ namespace Lopushok
             this.Hide();
         }
 
-        private void MaterialList_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();

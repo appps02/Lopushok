@@ -30,7 +30,6 @@
         {
             this.ProductList = new System.Windows.Forms.Button();
             this.AgentList = new System.Windows.Forms.Button();
-            this.MaterialList = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,19 +53,9 @@
             this.AgentList.UseVisualStyleBackColor = true;
             this.AgentList.Click += new System.EventHandler(this.AgentList_Click);
             // 
-            // MaterialList
-            // 
-            this.MaterialList.Location = new System.Drawing.Point(12, 143);
-            this.MaterialList.Name = "MaterialList";
-            this.MaterialList.Size = new System.Drawing.Size(200, 60);
-            this.MaterialList.TabIndex = 2;
-            this.MaterialList.Text = "Материалы";
-            this.MaterialList.UseVisualStyleBackColor = true;
-            this.MaterialList.Click += new System.EventHandler(this.MaterialList_Click);
-            // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(12, 209);
+            this.Exit.Location = new System.Drawing.Point(12, 143);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(200, 60);
             this.Exit.TabIndex = 3;
@@ -78,9 +67,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 290);
+            this.ClientSize = new System.Drawing.Size(230, 216);
             this.Controls.Add(this.Exit);
-            this.Controls.Add(this.MaterialList);
             this.Controls.Add(this.AgentList);
             this.Controls.Add(this.ProductList);
             this.Name = "MainWindow";
@@ -93,7 +81,6 @@
 
         private System.Windows.Forms.Button ProductList;
         private System.Windows.Forms.Button AgentList;
-        private System.Windows.Forms.Button MaterialList;
         private System.Windows.Forms.Button Exit;
     }
 }
