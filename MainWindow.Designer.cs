@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.ProductList = new System.Windows.Forms.Button();
             this.AgentList = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
@@ -71,8 +72,9 @@
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.AgentList);
             this.Controls.Add(this.ProductList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
-            this.Text = "MainWindow";
+            this.Text = "Лопушок - Главное окно";
             this.ResumeLayout(false);
 
         }

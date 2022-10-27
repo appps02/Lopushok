@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgentAdd));
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.textBoxINN = new System.Windows.Forms.TextBox();
@@ -284,8 +285,9 @@
             this.Controls.Add(this.textBoxINN);
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.textBoxTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgentAdd";
-            this.Text = "Лопушок - Добавление";
+            this.Text = "Лопушок - Добавление агента";
             this.Load += new System.EventHandler(this.AgentAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).EndInit();

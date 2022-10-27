@@ -267,7 +267,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductList";
-            this.Text = "Lopushok";
+            this.Text = "Лопушок - Список продуктов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductList_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

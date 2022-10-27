@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgentList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Редактирование = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -239,8 +240,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgentList";
-            this.Text = "AgentList";
+            this.Text = "Лопушок - Список агентов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgentList_FormClosing);
             this.Load += new System.EventHandler(this.AgentList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

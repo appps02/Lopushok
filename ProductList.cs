@@ -149,7 +149,7 @@ namespace Lopushok
                 DataRow row = DB.Data_Table($@"SELECT ID FROM Product WHERE ArticleNumber = '{btn.Tag.ToString()}'").Rows[0];
                 int ID = Convert.ToInt32(row["ID"]);
                 Product product = products.Where(p => p.article == Convert.ToInt32(btn.Tag)).First();
-                ProductEdit productEdit = new ProductEdit(product, ID, this.database);
+                ProductEdit productEdit = new ProductEdit(product, ID, database, products);
                 productEdit.ShowDialog();
                 products = Product.table_class(database.Products());
                 update();
