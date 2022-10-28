@@ -55,6 +55,10 @@
             this.buttonSaveAdd = new System.Windows.Forms.Button();
             this.buttonCancelAdd = new System.Windows.Forms.Button();
             this.agentTypeTableAdapter = new Lopushok.ЛопушокDataSetTableAdapters.AgentTypeTableAdapter();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +69,7 @@
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(121, 20);
             this.textBoxTitle.TabIndex = 0;
+            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxAddress
             // 
@@ -72,6 +77,7 @@
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(121, 20);
             this.textBoxAddress.TabIndex = 1;
+            this.textBoxAddress.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxINN
             // 
@@ -79,6 +85,7 @@
             this.textBoxINN.Name = "textBoxINN";
             this.textBoxINN.Size = new System.Drawing.Size(121, 20);
             this.textBoxINN.TabIndex = 2;
+            this.textBoxINN.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxKPP
             // 
@@ -86,6 +93,7 @@
             this.textBoxKPP.Name = "textBoxKPP";
             this.textBoxKPP.Size = new System.Drawing.Size(121, 20);
             this.textBoxKPP.TabIndex = 3;
+            this.textBoxKPP.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxDirectorName
             // 
@@ -93,6 +101,7 @@
             this.textBoxDirectorName.Name = "textBoxDirectorName";
             this.textBoxDirectorName.Size = new System.Drawing.Size(121, 20);
             this.textBoxDirectorName.TabIndex = 4;
+            this.textBoxDirectorName.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxPhone
             // 
@@ -100,6 +109,7 @@
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(121, 20);
             this.textBoxPhone.TabIndex = 5;
+            this.textBoxPhone.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxEmail
             // 
@@ -107,6 +117,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(121, 20);
             this.textBoxEmail.TabIndex = 6;
+            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxLogo
             // 
@@ -114,6 +125,7 @@
             this.textBoxLogo.Name = "textBoxLogo";
             this.textBoxLogo.Size = new System.Drawing.Size(121, 20);
             this.textBoxLogo.TabIndex = 7;
+            this.textBoxLogo.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxPriority
             // 
@@ -121,6 +133,7 @@
             this.textBoxPriority.Name = "textBoxPriority";
             this.textBoxPriority.Size = new System.Drawing.Size(121, 20);
             this.textBoxPriority.TabIndex = 8;
+            this.textBoxPriority.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // comboBoxTypeAgent
             // 
@@ -133,6 +146,7 @@
             this.comboBoxTypeAgent.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTypeAgent.TabIndex = 10;
             this.comboBoxTypeAgent.ValueMember = "ID";
+            this.comboBoxTypeAgent.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // agentTypeBindingSource
             // 
@@ -236,6 +250,7 @@
             // 
             // buttonSaveAdd
             // 
+            this.buttonSaveAdd.Enabled = false;
             this.buttonSaveAdd.Location = new System.Drawing.Point(54, 335);
             this.buttonSaveAdd.Name = "buttonSaveAdd";
             this.buttonSaveAdd.Size = new System.Drawing.Size(75, 23);
@@ -258,11 +273,55 @@
             // 
             this.agentTypeTableAdapter.ClearBeforeFill = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(274, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 13);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Пустое поле";
+            this.label11.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(274, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 13);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Пустое поле";
+            this.label12.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(274, 201);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(70, 13);
+            this.label13.TabIndex = 46;
+            this.label13.Text = "Пустое поле";
+            this.label13.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(274, 279);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.TabIndex = 47;
+            this.label14.Text = "Пустое поле";
+            this.label14.Visible = false;
+            // 
             // AgentAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 377);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.buttonCancelAdd);
             this.Controls.Add(this.buttonSaveAdd);
             this.Controls.Add(this.label10);
@@ -323,5 +382,9 @@
         private ЛопушокDataSet лопушокDataSet;
         private ЛопушокDataSetTableAdapters.AgentTypeTableAdapter agentTypeTableAdapter;
         private System.Windows.Forms.BindingSource agentTypeBindingSource;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

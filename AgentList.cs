@@ -111,7 +111,7 @@ namespace Lopushok
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            AgentAdd agentAdd = new AgentAdd(dataBase, this);
+            AgentAdd agentAdd = new AgentAdd(dataBase, this, agents);
             agentAdd.ShowDialog();
         }
 

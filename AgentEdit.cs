@@ -48,6 +48,7 @@ namespace Lopushok
             textBoxPriority.Text = agent[0].Priority.ToString();
             DataRow ID = DB.Data_Table($"SELECT [ID] FROM [Agent] WHERE [Title] = '{agent[0].Title}' AND [INN] = '{agent[0].INN}'").Rows[0];
             this.ID = Convert.ToInt32(ID.ItemArray[0]);
+            SaveChanges.Enabled = false;
         }
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -78,6 +79,11 @@ namespace Lopushok
         {
             try
             {
+                if (agent.Where(a => a.INN == textBoxINN.Text || a.Phone == textBoxPhone.Text).ToList().Count >= 1)
+                {
+                    MessageBox.Show("Агент с таким телефоном или ИНН уже существует");
+                    return;
+                }
                 database.request($@"UPDATE [Agent] SET Title = '{textBoxTitle.Text}', AgentTypeID = {comboBoxTypeAgent.SelectedValue}, Address = '{textBoxAddress.Text}', 
                 INN = '{textBoxINN.Text}', KPP = '{textBoxKPP.Text}', DirectorName = '{textBoxDirectorName.Text}', Phone = '{textBoxPhone.Text}', Email = '{textBoxEmail.Text}', 
                 Logo = '{textBoxLogo.Text}', Priority = {Convert.ToInt32(textBoxPriority.Text)} WHERE ID = {this.ID}");
@@ -88,6 +94,75 @@ namespace Lopushok
             {
                 MessageBox.Show("Ошибка:\n" + ex);
             }
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            SaveChanges.Enabled = check();
+        }
+
+        private bool check()
+        {
+            char[] nums = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            if(textBoxTitle.Text.Trim() == "")
+            {
+                label11.Visible = true;
+                return false;
+            }
+            else
+                label11.Visible = false;
+            if(textBoxINN.Text.Trim() == "")
+            {
+                label12.Text = "Пустое поле";
+                label12.Visible = true;
+                return false;
+            }
+            else
+                label12.Visible = false;
+            if (textBoxPhone.Text.Trim() == "")
+            {
+                label13.Text = "Пустое поле";
+                label13.Visible = true;
+                return false;
+            }
+            else
+                label13.Visible = false;
+            if (textBoxPriority.Text.Trim() == "")
+            {
+                label14.Text = "Пустое поле";
+                label14.Visible = true;
+                return false;
+            }
+            else
+                label14.Visible = false;
+            foreach (char i in textBoxINN.Text)
+            {
+                if(!nums.Contains(i))
+                {
+                    label12.Text = "Только целые числа";
+                    label12.Visible = true;
+                    return false;
+                }
+            }
+            foreach (char i in textBoxPhone.Text)
+            {
+                if (!nums.Contains(i))
+                {
+                    label13.Text = "Только целые числа";
+                    label13.Visible = true;
+                    return false;
+                }
+            }
+            foreach (char i in textBoxPriority.Text)
+            {
+                if (!nums.Contains(i))
+                {
+                    label14.Text = "Только целые числа";
+                    label14.Visible = true;
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
