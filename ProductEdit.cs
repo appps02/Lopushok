@@ -34,7 +34,7 @@ namespace Lopushok
         {
             textBoxArticleNumber.Text = textBoxArticleNumber.Text.Replace(" ", "");
             textBoxCost.Text = textBoxCost.Text.Replace(" ", "");
-            if (products.Where(p => p.article.ToString() == textBoxArticleNumber.Text).ToList().Count >= 1)
+            if (products.Where(p => p.article.ToString() == textBoxArticleNumber.Text).ToList().Count > 1)
             {
                 MessageBox.Show("Продукт с таким артикулом уже есть");
                 return;

@@ -79,7 +79,7 @@ namespace Lopushok
         {
             try
             {
-                if (agent.Where(a => a.INN == textBoxINN.Text || a.Phone == textBoxPhone.Text).ToList().Count >= 1)
+                if (agent.Where(a => a.INN == textBoxINN.Text || a.Phone == textBoxPhone.Text).ToList().Count > 1)
                 {
                     MessageBox.Show("Агент с таким телефоном или ИНН уже существует");
                     return;

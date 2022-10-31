@@ -38,12 +38,12 @@ namespace Lopushok
             else if(comboBoxSort.SelectedIndex == 1)
             {
                 column_order = "[Agent].[Title]";
-                ContextMenuStrip.Show();
+                ContextMenuStrip.Show(MousePosition);
             }
             else
             {
                 column_order = "[Agent].[Priority]";
-                ContextMenuStrip.Show();
+                ContextMenuStrip.Show(MousePosition);
             }
 
         }
@@ -59,6 +59,7 @@ namespace Lopushok
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
+            textBoxSearch.Enabled = true;
             if (radioButtonPhone.Checked == true)
             {
                 like = "[Agent].[Phone]";
@@ -71,6 +72,7 @@ namespace Lopushok
             {
                 like = "[Agent].[Title]";
             }
+            Query();
         }
 
         private void AgentList_Load(object sender, EventArgs e)
@@ -79,6 +81,7 @@ namespace Lopushok
             {
                 comboBoxFiltr.Items.Add(row[0].ToString());
             }
+            textBoxSearch.Enabled = false;
         }
 
         private void ContextMenuStrip_Click(object sender, EventArgs e)
