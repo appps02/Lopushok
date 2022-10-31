@@ -77,7 +77,7 @@ namespace Lopushok
                     }
                     else
                     {
-                        pictureBox.Image = new Bitmap($@"{Application.StartupPath + p.image}");
+                        pictureBox.Image = new Bitmap($@"{Application.StartupPath.Replace(@"\bin\Debug", $@"{p.image}")}");
                     }
 
                     Label label1 = new Label();
