@@ -19,16 +19,48 @@ namespace Lopushok
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            ProductList productList = new ProductList(this);
-            productList.Show();
-            this.Hide();
+            try
+            {
+                ProductList productList = new ProductList(this);
+                productList.Show();
+                this.Hide();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                var choice = MessageBox.Show("Не удалось подключится к базе данных из-за отсутствия файла базы данных или из-за повреждения. Вы хотите указать местоположение файла?", "Ошибка подключения", MessageBoxButtons.YesNo);
+                if (choice == DialogResult.Yes)
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.ShowDialog();
+                    string filename = openFileDialog.FileName;
+                    DB.Connection = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Lopushok"].ConnectionString.Replace($@"{System.Configuration.ConfigurationManager.ConnectionStrings["Lopushok"].ConnectionString}", $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={filename}"));
+                }
+                else
+                    return;
+            }
         }
 
         private void AgentList_Click(object sender, EventArgs e)
         {
-            AgentList agentList = new AgentList(this);
-            agentList.Show();
-            this.Hide();
+            try
+            {
+                ProductList productList = new ProductList(this);
+                productList.Show();
+                this.Hide();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                var choice = MessageBox.Show("Не удалось подключится к базе данных из-за отсутствия файла базы данных или из-за повреждения. Вы хотите указать местоположение файла?", "Ошибка подключения", MessageBoxButtons.YesNo);
+                if (choice == DialogResult.Yes)
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.ShowDialog();
+                    string filename = openFileDialog.FileName;
+                    DB.Connection = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Lopushok"].ConnectionString.Replace($@"{System.Configuration.ConfigurationManager.ConnectionStrings["Lopushok"].ConnectionString}", $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={filename}"));
+                }
+                else
+                    return;
+            }
         }
 
         private void Exit_Click(object sender, EventArgs e)

@@ -17,8 +17,8 @@ namespace Lopushok
 
         public DB()
         {
-            Connection.Open();
-            cmd = new SqlCommand("", Connection);
+                Connection.Open();
+                cmd = new SqlCommand("", Connection);
         }
         public DataTable Products()
         {
