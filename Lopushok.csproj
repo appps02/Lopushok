@@ -88,6 +88,12 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductAdd.Designer.cs">
+      <DependentUpon>ProductAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductAdd.resx">
+      <DependentUpon>ProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductEdit.resx">
       <DependentUpon>ProductEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,7 +136,7 @@
       <DependentUpon>ProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

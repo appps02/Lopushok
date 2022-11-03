@@ -75,10 +75,13 @@ namespace Lopushok
                     {
                         pictureBox.Image = Properties.Resources.picture;
                     }
-                    else
+                    else if (p.image.Contains("products"))
                     {
-                        pictureBox.Image = new Bitmap($@"{Application.StartupPath.Replace(@"\bin\Debug", $@"{p.image}")}");
+                        p.image = p.image.Replace(".jpg", "");
+                        pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(p.image.Replace(@"\products\", ""));
                     }
+                    else
+                        pictureBox.Image = new Bitmap(p.image);
 
                     Label label1 = new Label();
                     label1.Text = p.type;
@@ -271,6 +274,27 @@ namespace Lopushok
             if(DB.Connection.State == ConnectionState.Open)
                 DB.Connection.Close();
             mainWindow.Show();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            ProductAdd productAdd = new ProductAdd(this, database);
+            productAdd.ShowDialog();
+            update();
+        }
+
+        private void buttonLeftEnd_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            curpage.Text = "1";
+            update();
+        }
+
+        private void buttonRightEnd_Click(object sender, EventArgs e)
+        {
+            currentPage = maxPage;
+            curpage.Text = maximumpage.Text;
+            update();
         }
 
         private void Query(bool search, bool filtr, bool sort)

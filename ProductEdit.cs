@@ -42,6 +42,7 @@ namespace Lopushok
             if (database.request($@"UPDATE Product SET Title = '{textBoxTitle.Text}', ArticleNumber = '{textBoxArticleNumber.Text}', Image = '{textBoxPicture.Text}', MinCostForAgent = {textBoxCost.Text.Replace(",00", "")} WHERE ID = {ID}") == 1)
             {
                 MessageBox.Show("Продукт изменен");
+                Close();
             }
             else
                 MessageBox.Show("Продукт не был изменен или было изменено больше");
@@ -97,6 +98,19 @@ namespace Lopushok
                 }
             }
             return true;
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            var choice = MessageBox.Show("Вы хотите удалить данный продукт?", "Удаление продукта", MessageBoxButtons.YesNo);
+            if (choice == DialogResult.Yes)
+            {
+                database.request($"DELETE FROM [Product] WHERE ID = {ID}");
+                MessageBox.Show("Продукт удален");
+                Close();
+            }
+            else
+                return;
         }
     }
 }

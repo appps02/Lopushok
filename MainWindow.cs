@@ -23,7 +23,7 @@ namespace Lopushok
             {
                 ProductList productList = new ProductList(this);
                 productList.Show();
-                this.Hide();
+                Hide();
             }
             catch (System.Data.SqlClient.SqlException)
             {
@@ -46,7 +46,7 @@ namespace Lopushok
             {
                 ProductList productList = new ProductList(this);
                 productList.Show();
-                this.Hide();
+                Hide();
             }
             catch (System.Data.SqlClient.SqlException)
             {

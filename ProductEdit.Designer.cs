@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonDel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxTitle
@@ -115,7 +116,7 @@
             // buttonSave
             // 
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(50, 160);
+            this.buttonSave.Location = new System.Drawing.Point(55, 160);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 8;
@@ -125,7 +126,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(161, 160);
+            this.buttonCancel.Location = new System.Drawing.Point(217, 160);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 9;
@@ -163,11 +164,22 @@
             this.label7.Text = "Пустое поле";
             this.label7.Visible = false;
             // 
+            // buttonDel
+            // 
+            this.buttonDel.Location = new System.Drawing.Point(136, 160);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonDel.TabIndex = 13;
+            this.buttonDel.Text = "Удалить";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
+            // 
             // ProductEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 209);
+            this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonDel;
     }
 }

@@ -49,6 +49,9 @@
             this.AdoIA = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.отАДоЯToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отЯДоАToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonRightEnd = new System.Windows.Forms.Button();
+            this.buttonLeftEnd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.UpDown.SuspendLayout();
@@ -159,7 +162,7 @@
             this.Right.FlatAppearance.BorderSize = 0;
             this.Right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Right.ForeColor = System.Drawing.Color.Black;
-            this.Right.Location = new System.Drawing.Point(511, 482);
+            this.Right.Location = new System.Drawing.Point(481, 482);
             this.Right.Name = "Right";
             this.Right.Size = new System.Drawing.Size(16, 23);
             this.Right.TabIndex = 4;
@@ -175,7 +178,7 @@
             this.Left.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Left.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Left.ForeColor = System.Drawing.Color.Black;
-            this.Left.Location = new System.Drawing.Point(433, 482);
+            this.Left.Location = new System.Drawing.Point(403, 482);
             this.Left.Name = "Left";
             this.Left.Size = new System.Drawing.Size(16, 23);
             this.Left.TabIndex = 5;
@@ -186,7 +189,7 @@
             // maximumpage
             // 
             this.maximumpage.AutoSize = true;
-            this.maximumpage.Location = new System.Drawing.Point(492, 487);
+            this.maximumpage.Location = new System.Drawing.Point(462, 487);
             this.maximumpage.Name = "maximumpage";
             this.maximumpage.Size = new System.Drawing.Size(13, 13);
             this.maximumpage.TabIndex = 6;
@@ -195,7 +198,7 @@
             // curpage
             // 
             this.curpage.AutoSize = true;
-            this.curpage.Location = new System.Drawing.Point(455, 487);
+            this.curpage.Location = new System.Drawing.Point(425, 487);
             this.curpage.Name = "curpage";
             this.curpage.Size = new System.Drawing.Size(13, 13);
             this.curpage.TabIndex = 7;
@@ -204,7 +207,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(473, 487);
+            this.label3.Location = new System.Drawing.Point(443, 487);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 13);
             this.label3.TabIndex = 8;
@@ -252,12 +255,58 @@
             this.отЯДоАToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.отЯДоАToolStripMenuItem.Text = "От Я до А";
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(6, 482);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 9;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonRightEnd
+            // 
+            this.buttonRightEnd.AutoSize = true;
+            this.buttonRightEnd.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonRightEnd.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonRightEnd.FlatAppearance.BorderSize = 0;
+            this.buttonRightEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightEnd.ForeColor = System.Drawing.Color.Black;
+            this.buttonRightEnd.Location = new System.Drawing.Point(503, 482);
+            this.buttonRightEnd.Name = "buttonRightEnd";
+            this.buttonRightEnd.Size = new System.Drawing.Size(29, 23);
+            this.buttonRightEnd.TabIndex = 10;
+            this.buttonRightEnd.Text = ">>";
+            this.buttonRightEnd.UseVisualStyleBackColor = false;
+            this.buttonRightEnd.Click += new System.EventHandler(this.buttonRightEnd_Click);
+            // 
+            // buttonLeftEnd
+            // 
+            this.buttonLeftEnd.AutoSize = true;
+            this.buttonLeftEnd.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonLeftEnd.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonLeftEnd.FlatAppearance.BorderSize = 0;
+            this.buttonLeftEnd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonLeftEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftEnd.ForeColor = System.Drawing.Color.Black;
+            this.buttonLeftEnd.Location = new System.Drawing.Point(368, 482);
+            this.buttonLeftEnd.Name = "buttonLeftEnd";
+            this.buttonLeftEnd.Size = new System.Drawing.Size(29, 23);
+            this.buttonLeftEnd.TabIndex = 11;
+            this.buttonLeftEnd.Text = "<<";
+            this.buttonLeftEnd.UseVisualStyleBackColor = false;
+            this.buttonLeftEnd.Click += new System.EventHandler(this.buttonLeftEnd_Click);
+            // 
             // ProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(530, 506);
+            this.Controls.Add(this.buttonLeftEnd);
+            this.Controls.Add(this.buttonRightEnd);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.curpage);
             this.Controls.Add(this.maximumpage);
@@ -300,6 +349,9 @@
         private System.Windows.Forms.ToolStripMenuItem отЯДоАToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonRightEnd;
+        private System.Windows.Forms.Button buttonLeftEnd;
     }
 }
 

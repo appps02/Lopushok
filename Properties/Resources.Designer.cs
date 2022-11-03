@@ -22,7 +22,7 @@ namespace Lopushok.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Lopushok.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Lopushok.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Lopushok.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_0 {
+        public static System.Drawing.Bitmap paper_0 {
             get {
                 object obj = ResourceManager.GetObject("paper_0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_1 {
+        public static System.Drawing.Bitmap paper_1 {
             get {
                 object obj = ResourceManager.GetObject("paper_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_10 {
+        public static System.Drawing.Bitmap paper_10 {
             get {
                 object obj = ResourceManager.GetObject("paper_10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_11 {
+        public static System.Drawing.Bitmap paper_11 {
             get {
                 object obj = ResourceManager.GetObject("paper_11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_12 {
+        public static System.Drawing.Bitmap paper_12 {
             get {
                 object obj = ResourceManager.GetObject("paper_12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_13 {
+        public static System.Drawing.Bitmap paper_13 {
             get {
                 object obj = ResourceManager.GetObject("paper_13", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_14 {
+        public static System.Drawing.Bitmap paper_14 {
             get {
                 object obj = ResourceManager.GetObject("paper_14", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_15 {
+        public static System.Drawing.Bitmap paper_15 {
             get {
                 object obj = ResourceManager.GetObject("paper_15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_16 {
+        public static System.Drawing.Bitmap paper_16 {
             get {
                 object obj = ResourceManager.GetObject("paper_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_17 {
+        public static System.Drawing.Bitmap paper_17 {
             get {
                 object obj = ResourceManager.GetObject("paper_17", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_18 {
+        public static System.Drawing.Bitmap paper_18 {
             get {
                 object obj = ResourceManager.GetObject("paper_18", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_19 {
+        public static System.Drawing.Bitmap paper_19 {
             get {
                 object obj = ResourceManager.GetObject("paper_19", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_2 {
+        public static System.Drawing.Bitmap paper_2 {
             get {
                 object obj = ResourceManager.GetObject("paper_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_20 {
+        public static System.Drawing.Bitmap paper_20 {
             get {
                 object obj = ResourceManager.GetObject("paper_20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_21 {
+        public static System.Drawing.Bitmap paper_21 {
             get {
                 object obj = ResourceManager.GetObject("paper_21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_22 {
+        public static System.Drawing.Bitmap paper_22 {
             get {
                 object obj = ResourceManager.GetObject("paper_22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_23 {
+        public static System.Drawing.Bitmap paper_23 {
             get {
                 object obj = ResourceManager.GetObject("paper_23", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_24 {
+        public static System.Drawing.Bitmap paper_24 {
             get {
                 object obj = ResourceManager.GetObject("paper_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_25 {
+        public static System.Drawing.Bitmap paper_25 {
             get {
                 object obj = ResourceManager.GetObject("paper_25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_3 {
+        public static System.Drawing.Bitmap paper_3 {
             get {
                 object obj = ResourceManager.GetObject("paper_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_4 {
+        public static System.Drawing.Bitmap paper_4 {
             get {
                 object obj = ResourceManager.GetObject("paper_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_5 {
+        public static System.Drawing.Bitmap paper_5 {
             get {
                 object obj = ResourceManager.GetObject("paper_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_6 {
+        public static System.Drawing.Bitmap paper_6 {
             get {
                 object obj = ResourceManager.GetObject("paper_6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_7 {
+        public static System.Drawing.Bitmap paper_7 {
             get {
                 object obj = ResourceManager.GetObject("paper_7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_8 {
+        public static System.Drawing.Bitmap paper_8 {
             get {
                 object obj = ResourceManager.GetObject("paper_8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_9 {
+        public static System.Drawing.Bitmap paper_9 {
             get {
                 object obj = ResourceManager.GetObject("paper_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap picture {
+        public static System.Drawing.Bitmap picture {
             get {
                 object obj = ResourceManager.GetObject("picture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        internal static System.Drawing.Icon Лопушок {
+        public static System.Drawing.Icon Лопушок {
             get {
                 object obj = ResourceManager.GetObject("Лопушок", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -343,7 +343,7 @@ namespace Lopushok.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Лопушок1 {
+        public static System.Drawing.Bitmap Лопушок1 {
             get {
                 object obj = ResourceManager.GetObject("Лопушок1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
