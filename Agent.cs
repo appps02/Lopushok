@@ -9,6 +9,7 @@ namespace Lopushok
 {
     public class Agent
     {
+        public int ID { get; set; }
         public string Title { get; set; }
         public int AgentTypeID { get; set; }
         public string Address { get; set; }
@@ -20,8 +21,9 @@ namespace Lopushok
         public string Logo { get; set; }
         public int Priority { get; set; }
 
-        public Agent(string title, int agentTypeID, string address, string iNN, string kPP, string directorName, string phone, string email, string logo, int priority)
+        public Agent(int ID, string title, int agentTypeID, string address, string iNN, string kPP, string directorName, string phone, string email, string logo, int priority)
         {
+            this.ID = ID;
             Title = title;
             AgentTypeID = agentTypeID;
             Address = address;
@@ -40,7 +42,7 @@ namespace Lopushok
             foreach (DataRow dr in table.Rows)
             {
                 object[] row = dr.ItemArray;
-                Agent agents = new Agent(row[1].ToString(), Convert.ToInt32(row[2]), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[9].ToString(), Convert.ToInt32(row[10]));
+                Agent agents = new Agent(Convert.ToInt32(row[0]), row[1].ToString(), Convert.ToInt32(row[2]), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString(), row[9].ToString(), Convert.ToInt32(row[10]));
                 list.Add(agents);
             }
             return list;
