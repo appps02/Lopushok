@@ -71,6 +71,7 @@ namespace Lopushok
                     pictureBox.Size = new Size(83, 68);
                     pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox.Location = new Point(3, 10);
+                    pictureBox.Tag = p.article;
                     if (p.image == "")
                     {
                         pictureBox.Image = Properties.Resources.picture;
@@ -112,7 +113,7 @@ namespace Lopushok
                     label4.AutoSize = true;
 
                     Label label5 = new Label();
-                    label5.Text = p.cost.ToString();
+                    label5.Text = p.cost.ToString() + " руб.";
                     label5.Location = new Point(435, 13);
                     label5.AutoSize = true;
 
@@ -148,11 +149,26 @@ namespace Lopushok
         {
             try
             {
-                var btn = (Button)sender;
+                Button btn = (Button)sender;
+                PictureBox pictureBox = new PictureBox();
                 DataRow row = DB.Data_Table($@"SELECT ID FROM Product WHERE ArticleNumber = '{btn.Tag.ToString()}'").Rows[0];
-                int ID = Convert.ToInt32(row["ID"]);
+                foreach (Control control in flowLayoutPanel1.Controls)
+                {
+                    foreach (var i in control.Controls)
+                    {
+                        if (i is PictureBox)
+                        {
+                            PictureBox _pictureBox = (PictureBox)i;
+                            if (_pictureBox.Tag.Equals(btn.Tag))
+                            {
+                                pictureBox.Image = _pictureBox.Image;
+                                break;
+                            }
+                        }
+                    }
+                }
                 Product product = products.Where(p => p.article == Convert.ToInt32(btn.Tag)).First();
-                ProductEdit productEdit = new ProductEdit(product, ID, database, products);
+                ProductEdit productEdit = new ProductEdit(product, database, products, pictureBox);
                 productEdit.ShowDialog();
                 products = Product.table_class(database.Products());
                 update();
@@ -278,7 +294,7 @@ namespace Lopushok
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            ProductAdd productAdd = new ProductAdd(this, database);
+            ProductAdd productAdd = new ProductAdd(this, database, products);
             productAdd.ShowDialog();
             update();
         }

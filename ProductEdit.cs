@@ -12,16 +12,17 @@ namespace Lopushok
 {
     public partial class ProductEdit : Form
     {
-        private int ID;
+        private string filename = "";
         private List<Product> products;
         private Product product;
         private DB database;
-        public ProductEdit(Product _product, int _ID, DB _database, List<Product> _products)
+        private PictureBox PictureBox;
+        public ProductEdit(Product _product, DB _database, List<Product> _products, PictureBox _pictureBox)
         {
-            ID = _ID;
             product = _product;
             database = _database;
             products = _products;
+            PictureBox = _pictureBox;
             InitializeComponent();
         }
 
@@ -32,71 +33,81 @@ namespace Lopushok
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            textBoxArticleNumber.Text = textBoxArticleNumber.Text.Replace(" ", "");
-            textBoxCost.Text = textBoxCost.Text.Replace(" ", "");
-            if (products.Where(p => p.article.ToString() == textBoxArticleNumber.Text).ToList().Count > 1)
+            try
             {
-                MessageBox.Show("Продукт с таким артикулом уже есть");
-                return;
-            }
-            if (database.request($@"UPDATE Product SET Title = '{textBoxTitle.Text}', ArticleNumber = '{textBoxArticleNumber.Text}', Image = '{textBoxPicture.Text}', MinCostForAgent = {textBoxCost.Text.Replace(",00", "")} WHERE ID = {ID}") == 1)
-            {
-                MessageBox.Show("Продукт изменен");
+                if (products.Where(p => p.article.ToString() == textBoxArticleNum.Text && p.id != product.id) .Count() > 0)
+                {
+                    MessageBox.Show("Продукт с таким артикулом уже есть.");
+                    return;
+                }
+                database.request($@"UPDATE [Product] SET Title = '{textBoxName.Text}', ProductTypeID = {Convert.ToInt32(comboBoxTypeProd.SelectedValue)}, ArticleNumber = '{textBoxArticleNum.Text}', 
+                [Product].[Description] = '{textBoxDescription.Text}', Image = '{filename}', MinCostForAgent = {Convert.ToInt32(textBoxMinCost.Text)} WHERE ID = {product.id}");
+                MessageBox.Show("Продукт внесен в базу.");
                 Close();
             }
-            else
-                MessageBox.Show("Продукт не был изменен или было изменено больше");
-            Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка:\n" + ex.Message);
+            }
         }
 
         private void ProductEdit_Load(object sender, EventArgs e)
         {
-            textBoxTitle.Text = product.Title;
-            textBoxArticleNumber.Text = product.article.ToString();
-            textBoxPicture.Text = product.image;
-            textBoxCost.Text = product.cost.ToString().Replace(",00", "");
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "лопушокDataSet.ProductType". При необходимости она может быть перемещена или удалена.
+            this.productTypeTableAdapter.Fill(this.лопушокDataSet.ProductType);
+            DataRow row = DB.Data_Table($"SELECT [Product].[Description] FROM [Product] WHERE [Product].[ID] = {product.id}").Rows[0];
+            textBoxDescription.Text = row[0].ToString();
+            textBoxName.Text = product.Title;
+            textBoxArticleNum.Text = product.article.ToString();
+            textBoxMinCost.Text = product.cost.ToString().Replace(",00", "");
+            pictureBox.Image = PictureBox.Image;
+            comboBoxTypeProd.Text = product.type;
+            filename = product.image;
             buttonSave.Enabled = false;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
+            Label[] label = Controls.OfType<Label>().ToArray();
+            TextBox[] textBoxes = { textBoxName, textBoxArticleNum, textBoxMinCost };
+            foreach (TextBox textBox in textBoxes)
+            {
+                if (textBox.Text == "")
+                    label.Where(l => l.Tag == textBox.Tag).First().Text = "Пустое поле";
+                else
+                    label.Where(l => l.Tag == textBox.Tag).First().Text = "";
+            }
+            if (textBoxMinCost.Text != "")
+            {
+                char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                foreach (char i in textBoxMinCost.Text)
+                {
+                    if (!chars.Contains(i))
+                    {
+                        label8.Text = "Только целые числа;\nБез пробелов";
+                        break;
+                    }
+                    else
+                    {
+                        label8.Text = "";
+                    }
+                }
+            }
+            if (textBoxArticleNum.Text.Length > 6)
+            {
+                label7.Text = label7.Text + "\nНе более 6 символов";
+            }
+            else
+                label7.Text = label7.Text.Replace("\nНе более 6 символов", "");
             buttonSave.Enabled = check();
         }
 
         private bool check()
         {
-            char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            if (textBoxArticleNumber.Text.Trim() == "")
-            {
-                label5.Visible = true;
-                return false;
-            }
-            else
-                label5.Visible = false;
-            if (textBoxCost.Text.Trim() == "")
-            {
-                label6.Text = "Пустое поле";
-                label6.Visible = true;
-                return false;
-            }
-            else
-                label6.Visible = false;
-            if (textBoxTitle.Text.Trim() == "")
-            {
-                label7.Visible = true;
-                return false;
-            }
-            else
-                label7.Visible = false;
-            foreach (char i in textBoxCost.Text)
-            {
-                if (!chars.Contains(i))
-                {
-                    label6.Text = "Только целые\n числа";
-                    label6.Visible = true;
+            Label[] labes = { label6, label7, label8 };
+            foreach (Label lab in labes)
+                if (lab.Text != "")
                     return false;
-                }
-            }
             return true;
         }
 
@@ -105,12 +116,44 @@ namespace Lopushok
             var choice = MessageBox.Show("Вы хотите удалить данный продукт?", "Удаление продукта", MessageBoxButtons.YesNo);
             if (choice == DialogResult.Yes)
             {
-                database.request($"DELETE FROM [Product] WHERE ID = {ID}");
+                database.request($"DELETE FROM [Product] WHERE ID = {product.id}");
                 MessageBox.Show("Продукт удален");
                 Close();
             }
             else
                 return;
+        }
+
+        private void buttonChoseImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Файлы изображений (*.bmp, *.jpg, *.png)|*.bmp;*.jpg;*.png" +
+                                    "|Все файлы (*)|*.*";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox.Image = new Bitmap($@"{openFileDialog.FileName}");
+                    filename = openFileDialog.FileName;
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    MessageBox.Show("Файл не найден или поврежден");
+                    pictureBox.Image = Properties.Resources.picture;
+                    filename = "";
+                }
+                finally
+                {
+                    buttonSave.Enabled = true;
+                }
+            }
+        }
+
+        private void buttonDeleteImage_Click(object sender, EventArgs e)
+        {
+            pictureBox.Image = Properties.Resources.picture;
+            filename = "";
+            buttonSave.Enabled = true;
         }
     }
 }

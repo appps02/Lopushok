@@ -9,6 +9,7 @@ namespace Lopushok
 {
     public class Product
     {
+        public int id;
         public string Title;
         public string type;
         public int article;
@@ -16,8 +17,9 @@ namespace Lopushok
         public decimal cost;
         public string Materials;
 
-        public Product(string title, string type, int article, string image, decimal cost)
+        public Product(int id, string title, string type, int article, string image, decimal cost)
         {
+            this.id = id;
             this.Title = title;
             this.type = type;
             this.article = article;
@@ -32,7 +34,7 @@ namespace Lopushok
             {
                 int count = 0;
                 object[] row = dr.ItemArray;
-                Product product = new Product(row[1].ToString(), row[2].ToString(), Convert.ToInt32(row[3]), row[4].ToString(), Convert.ToDecimal(row[5]));
+                Product product = new Product(Convert.ToInt32(row[0]), row[1].ToString(), row[2].ToString(), Convert.ToInt32(row[3]), row[4].ToString(), Convert.ToDecimal(row[5]));
                 DataTable dataTable = DB.ListofProductMaterial((int)row[0]);
                 foreach (DataRow i in dataTable.Rows)
                 {

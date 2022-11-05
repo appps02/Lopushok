@@ -44,8 +44,8 @@ namespace Lopushok
         {
             try
             {
-                ProductList productList = new ProductList(this);
-                productList.Show();
+                AgentList agentList = new AgentList(this);
+                agentList.Show();
                 Hide();
             }
             catch (System.Data.SqlClient.SqlException)

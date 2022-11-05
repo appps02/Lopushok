@@ -15,12 +15,14 @@ namespace Lopushok
         private string filename = "";
         private ProductList productList;
         private DB database;
-        public ProductAdd(ProductList _productList, DB _database)
+        private List<Product> products = new List<Product>();
+        public ProductAdd(ProductList _productList, DB _database, List<Product> _products)
         {
 
             InitializeComponent();
             productList = _productList;
             database = _database;
+            products = _products;
         }
 
         private void ProductAdd_Load(object sender, EventArgs e)
@@ -53,9 +55,11 @@ namespace Lopushok
                     pictureBox.Image = new Bitmap($@"{openFileDialog.FileName}");
                     filename = openFileDialog.FileName;
                 }
-                catch
+                catch(System.IO.FileNotFoundException)
                 {
-                    MessageBox.Show("Неверный путь к файлу");
+                    MessageBox.Show("Файл не найден или поврежден");
+                    pictureBox.Image = Properties.Resources.picture;
+                    filename = "";
                 }
             }
         }
@@ -109,8 +113,11 @@ namespace Lopushok
         {
             try
             {
-                string test = $@"INSERT INTO [Product] VALUES('{textBoxName.Text}', {Convert.ToInt32(comboBoxTypeProd.SelectedValue)}, '{textBoxArticleNum.Text}',
-                '{textBoxDescription.Text}', '{filename}', NULL, NULL, {Convert.ToInt32(textBoxMinCost.Text)})";
+                if(products.Where(p => p.article.ToString() == textBoxArticleNum.Text).Count() != 0)
+                {
+                    MessageBox.Show("Продукт с таким артикулом уже есть.");
+                    return;
+                }
                 database.request($@"INSERT INTO [Product] VALUES('{textBoxName.Text}', {Convert.ToInt32(comboBoxTypeProd.SelectedValue)}, '{textBoxArticleNum.Text}',
                 '{textBoxDescription.Text}', '{filename}', NULL, NULL, {Convert.ToInt32(textBoxMinCost.Text)})");
                 MessageBox.Show("Продукт внесен в базу.");
