@@ -14,14 +14,17 @@ namespace Lopushok
     {
         private AgentList agentList;
         private DB database;
+        private string filename;
         private DataGridView DataGridView;
-        private List<Agent> agent;
+        private Agent agent;
+        private List <Agent> agents;
         private int ID;
-        public AgentEdit(AgentList _agentList, DB _database, DataGridView _dataGridView)
+        public AgentEdit(AgentList _agentList, DB _database, DataGridView _dataGridView, List<Agent> _agents)
         {
             agentList = _agentList;
             database = _database;
             DataGridView = _dataGridView;
+            agents = _agents;
             InitializeComponent();
         }
 
@@ -30,24 +33,45 @@ namespace Lopushok
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "лопушокDataSet.AgentType". При необходимости она может быть перемещена или удалена.
             this.agentTypeTableAdapter.Fill(this.лопушокDataSet.AgentType);
-            this.agent = agentList.agents.Where(a => a.Title == DataGridView.CurrentRow.Cells[1].Value.ToString() && a.Phone == DataGridView.CurrentRow.Cells[4].Value.ToString()).ToList();
+            List <Agent> agent = agentList.agents.Where(a => a.Title == DataGridView.CurrentRow.Cells[1].Value.ToString() && a.Phone == DataGridView.CurrentRow.Cells[4].Value.ToString()).ToList();
             if (agent.Count == 0 || agent.Count > 1)
             {
                 MessageBox.Show("Агент не найден.");
-                this.Close();
+                Close();
+            }
+            else
+            {
+                this.agent = agent.FirstOrDefault();
             }
             comboBoxTypeAgent.Text = DataGridView.CurrentRow.Cells[2].Value.ToString();
-            textBoxTitle.Text = agent[0].Title;
-            textBoxAddress.Text = agent[0].Address;
-            textBoxINN.Text = agent[0].INN;
-            textBoxKPP.Text = agent[0].KPP;
-            textBoxDirectorName.Text = agent[0].DirectorName;
-            textBoxPhone.Text = agent[0].Phone;
-            textBoxEmail.Text = agent[0].Email;
-            textBoxLogo.Text = agent[0].Logo;
-            textBoxPriority.Text = agent[0].Priority.ToString();
-            DataRow ID = DB.Data_Table($"SELECT [ID] FROM [Agent] WHERE [Title] = '{agent[0].Title}' AND [INN] = '{agent[0].INN}'").Rows[0];
-            this.ID = Convert.ToInt32(ID.ItemArray[0]);
+            textBoxTitle.Text = this.agent.Title;
+            textBoxAddress.Text = this.agent.Address;
+            textBoxINN.Text = this.agent.INN;
+            textBoxKPP.Text = this.agent.KPP;
+            if (this.agent.Logo != "")
+            {
+                try
+                {
+                    pictureBox.Image = new Bitmap(this.agent.Logo);
+                    filename = this.agent.Logo;
+                }
+                catch
+                {
+                    MessageBox.Show("Изображение не найдено или повреждено. Проверьте путь к изображению");
+                    pictureBox.Image = Properties.Resources.picture;
+                    filename = "";
+                }
+            }
+            else
+            {
+                pictureBox.Image = Properties.Resources.picture;
+                filename = "";
+            }
+            textBoxDirectorName.Text = this.agent.DirectorName;
+            textBoxPhone.Text = this.agent.Phone;
+            textBoxEmail.Text = this.agent.Email;
+            textBoxPriority.Text = this.agent.Priority.ToString();
+            ID = this.agent.ID;
             SaveChanges.Enabled = false;
         }
         private void Delete_Click(object sender, EventArgs e)
@@ -59,10 +83,10 @@ namespace Lopushok
                 {
                     if (database.request($@"DELETE
                             FROM [Agent]
-                            WHERE [INN] = '{agent[0].INN}'") != 0)
+                            WHERE [ID] = {agent.ID}") != 0)
                     {
                         MessageBox.Show("Агент удалён");
-                        this.Close();
+                        Close();
                     }
 
                     else
@@ -79,16 +103,17 @@ namespace Lopushok
         {
             try
             {
-                if (agent.Where(a => a.INN == textBoxINN.Text || a.Phone == textBoxPhone.Text).ToList().Count > 1)
+                if (agents.Where(a => a.INN == textBoxINN.Text && a.ID != agent.ID).ToList().Count > 0)
                 {
                     MessageBox.Show("Агент с таким телефоном или ИНН уже существует");
                     return;
                 }
                 database.request($@"UPDATE [Agent] SET Title = '{textBoxTitle.Text}', AgentTypeID = {comboBoxTypeAgent.SelectedValue}, Address = '{textBoxAddress.Text}', 
                 INN = '{textBoxINN.Text}', KPP = '{textBoxKPP.Text}', DirectorName = '{textBoxDirectorName.Text}', Phone = '{textBoxPhone.Text}', Email = '{textBoxEmail.Text}', 
-                Logo = '{textBoxLogo.Text}', Priority = {Convert.ToInt32(textBoxPriority.Text)} WHERE ID = {this.ID}");
+                Logo = '{filename}', Priority = {Convert.ToInt32(textBoxPriority.Text)} WHERE ID = {ID}");
                 agentList.refresh();
                 MessageBox.Show("Изменения внесены.");
+                Close();
             }
             catch (Exception ex)
             {
@@ -98,71 +123,75 @@ namespace Lopushok
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
+            textBoxTitle.Text = textBoxTitle.Text.TrimStart();
+            Label[] labels = { label11, label12, label13, label14 };
+            TextBox[] textBoxes = { textBoxTitle, textBoxINN, textBoxPhone, textBoxPriority };
+            foreach (TextBox textBox in textBoxes)
+            {
+                if (textBox.Text == "")
+                    labels.Where(l => l.Tag.Equals(textBox.Tag)).First().Text = "Пустое поле";
+                else
+                    labels.Where(l => l.Tag.Equals(textBox.Tag)).First().Text = labels.Where(l => l.Tag.Equals(textBox.Tag)).First().Text.Replace("Пустое поле", "");
+            }
+            textBoxes = textBoxes.Where(l => Convert.ToInt32(l.Tag) != 1).ToArray();
+            char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            foreach (TextBox textBox in textBoxes)
+            {
+                foreach (char i in textBox.Text)
+                {
+                    if (textBox.Text != "" && !chars.Contains(i))
+                    {
+                        labels.Where(l => l.Tag.Equals(textBox.Tag)).First().Text = "Только целые\nчисла; Без пробелов";
+                    }
+                    else
+                    {
+                        labels.Where(l => l.Tag.Equals(textBox.Tag)).First().Text = labels.Where(l => l.Tag.Equals(textBox.Tag)).First().Text.Replace("Только целые\nчисла; Без пробелов", "");
+                    }
+                }
+            }
             SaveChanges.Enabled = check();
         }
 
         private bool check()
         {
-            char[] nums = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            if(textBoxTitle.Text.Trim() == "")
+            Label[] labels = { label11, label12, label13, label14 };
+            foreach (Label label in labels)
             {
-                label11.Visible = true;
-                return false;
-            }
-            else
-                label11.Visible = false;
-            if(textBoxINN.Text.Trim() == "")
-            {
-                label12.Text = "Пустое поле";
-                label12.Visible = true;
-                return false;
-            }
-            else
-                label12.Visible = false;
-            if (textBoxPhone.Text.Trim() == "")
-            {
-                label13.Text = "Пустое поле";
-                label13.Visible = true;
-                return false;
-            }
-            else
-                label13.Visible = false;
-            if (textBoxPriority.Text.Trim() == "")
-            {
-                label14.Text = "Пустое поле";
-                label14.Visible = true;
-                return false;
-            }
-            else
-                label14.Visible = false;
-            foreach (char i in textBoxINN.Text)
-            {
-                if(!nums.Contains(i))
-                {
-                    label12.Text = "Только целые числа";
-                    label12.Visible = true;
+                if (label.Text != "")
                     return false;
-                }
-            }
-            foreach (char i in textBoxPhone.Text)
-            {
-                if (!nums.Contains(i))
-                {
-                    label13.Text = "Только целые числа";
-                    label13.Visible = true;
-                    return false;
-                }
-            }
-            foreach (char i in textBoxPriority.Text)
-            {
-                if (!nums.Contains(i))
-                {
-                    label14.Text = "Только целые числа";
-                    label14.Visible = true;
-                    return false;
-                }
             }
             return true;
+        }
+
+        private void buttonAddImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox.Image = new Bitmap(openFileDialog.FileName);
+                    filename = openFileDialog.FileName;
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    MessageBox.Show("Файл не найден или поврежден");
+                    pictureBox.Image = Properties.Resources.picture;
+                    filename = "";
+                }
+            }
+        }
+
+        private void buttonDeleteImage_Click(object sender, EventArgs e)
+        {
+            pictureBox.Image = Properties.Resources.picture;
+            filename = "";
+            SaveChanges.Enabled = true;
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

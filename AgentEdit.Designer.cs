@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgentEdit));
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.agentTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.лопушокDataSet = new Lopushok.ЛопушокDataSet();
             this.textBoxPriority = new System.Windows.Forms.TextBox();
-            this.textBoxLogo = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxDirectorName = new System.Windows.Forms.TextBox();
@@ -59,32 +57,28 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.buttonAddImage = new System.Windows.Forms.Button();
+            this.buttonDeleteImage = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(52, 247);
+            this.label10.Location = new System.Drawing.Point(38, 231);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 13);
             this.label10.TabIndex = 40;
             this.label10.Text = "Приоритет";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(67, 221);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 39;
-            this.label9.Text = "Логотип";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 195);
+            this.label8.Location = new System.Drawing.Point(-2, 205);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 13);
             this.label8.TabIndex = 38;
@@ -93,7 +87,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(61, 169);
+            this.label7.Location = new System.Drawing.Point(47, 179);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 37;
@@ -102,7 +96,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 143);
+            this.label6.Location = new System.Drawing.Point(14, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 36;
@@ -111,7 +105,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 117);
+            this.label5.Location = new System.Drawing.Point(69, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 35;
@@ -120,7 +114,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 91);
+            this.label4.Location = new System.Drawing.Point(68, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 34;
@@ -129,7 +123,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 65);
+            this.label3.Location = new System.Drawing.Point(61, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 33;
@@ -159,7 +153,7 @@
             this.comboBoxTypeAgent.DisplayMember = "Title";
             this.comboBoxTypeAgent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeAgent.FormattingEnabled = true;
-            this.comboBoxTypeAgent.Location = new System.Drawing.Point(131, 31);
+            this.comboBoxTypeAgent.Location = new System.Drawing.Point(117, 41);
             this.comboBoxTypeAgent.Name = "comboBoxTypeAgent";
             this.comboBoxTypeAgent.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTypeAgent.TabIndex = 30;
@@ -178,24 +172,16 @@
             // 
             // textBoxPriority
             // 
-            this.textBoxPriority.Location = new System.Drawing.Point(131, 240);
+            this.textBoxPriority.Location = new System.Drawing.Point(117, 224);
             this.textBoxPriority.Name = "textBoxPriority";
             this.textBoxPriority.Size = new System.Drawing.Size(121, 20);
             this.textBoxPriority.TabIndex = 29;
             this.textBoxPriority.Tag = "4";
             this.textBoxPriority.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
-            // textBoxLogo
-            // 
-            this.textBoxLogo.Location = new System.Drawing.Point(131, 214);
-            this.textBoxLogo.Name = "textBoxLogo";
-            this.textBoxLogo.Size = new System.Drawing.Size(121, 20);
-            this.textBoxLogo.TabIndex = 28;
-            this.textBoxLogo.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(131, 188);
+            this.textBoxEmail.Location = new System.Drawing.Point(117, 198);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(121, 20);
             this.textBoxEmail.TabIndex = 27;
@@ -203,7 +189,7 @@
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(131, 162);
+            this.textBoxPhone.Location = new System.Drawing.Point(117, 172);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(121, 20);
             this.textBoxPhone.TabIndex = 26;
@@ -212,7 +198,7 @@
             // 
             // textBoxDirectorName
             // 
-            this.textBoxDirectorName.Location = new System.Drawing.Point(131, 136);
+            this.textBoxDirectorName.Location = new System.Drawing.Point(117, 146);
             this.textBoxDirectorName.Name = "textBoxDirectorName";
             this.textBoxDirectorName.Size = new System.Drawing.Size(121, 20);
             this.textBoxDirectorName.TabIndex = 25;
@@ -220,7 +206,7 @@
             // 
             // textBoxKPP
             // 
-            this.textBoxKPP.Location = new System.Drawing.Point(131, 110);
+            this.textBoxKPP.Location = new System.Drawing.Point(117, 120);
             this.textBoxKPP.Name = "textBoxKPP";
             this.textBoxKPP.Size = new System.Drawing.Size(121, 20);
             this.textBoxKPP.TabIndex = 24;
@@ -228,7 +214,7 @@
             // 
             // textBoxINN
             // 
-            this.textBoxINN.Location = new System.Drawing.Point(131, 84);
+            this.textBoxINN.Location = new System.Drawing.Point(117, 94);
             this.textBoxINN.Name = "textBoxINN";
             this.textBoxINN.Size = new System.Drawing.Size(121, 20);
             this.textBoxINN.TabIndex = 23;
@@ -237,7 +223,7 @@
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Location = new System.Drawing.Point(131, 58);
+            this.textBoxAddress.Location = new System.Drawing.Point(117, 68);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(121, 20);
             this.textBoxAddress.TabIndex = 22;
@@ -245,7 +231,7 @@
             // 
             // textBoxTitle
             // 
-            this.textBoxTitle.Location = new System.Drawing.Point(131, 5);
+            this.textBoxTitle.Location = new System.Drawing.Point(117, 15);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(121, 20);
             this.textBoxTitle.TabIndex = 21;
@@ -265,7 +251,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(253, 282);
+            this.Delete.Location = new System.Drawing.Point(96, 282);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 23);
             this.Delete.TabIndex = 42;
@@ -280,48 +266,87 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(258, 5);
+            this.label11.Location = new System.Drawing.Point(244, 15);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
+            this.label11.Size = new System.Drawing.Size(0, 13);
             this.label11.TabIndex = 43;
-            this.label11.Text = "Пустое поле";
-            this.label11.Visible = false;
+            this.label11.Tag = "1";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(258, 84);
+            this.label12.Location = new System.Drawing.Point(244, 94);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 13);
+            this.label12.Size = new System.Drawing.Size(0, 13);
             this.label12.TabIndex = 44;
-            this.label12.Text = "Пустое поле";
-            this.label12.Visible = false;
+            this.label12.Tag = "2";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(258, 162);
+            this.label13.Location = new System.Drawing.Point(244, 172);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 13);
+            this.label13.Size = new System.Drawing.Size(0, 13);
             this.label13.TabIndex = 45;
-            this.label13.Text = "Пустое поле";
-            this.label13.Visible = false;
+            this.label13.Tag = "3";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(258, 240);
+            this.label14.Location = new System.Drawing.Point(244, 224);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.Size = new System.Drawing.Size(0, 13);
             this.label14.TabIndex = 46;
-            this.label14.Text = "Пустое поле";
-            this.label14.Visible = false;
+            this.label14.Tag = "4";
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(364, 15);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(182, 170);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 47;
+            this.pictureBox.TabStop = false;
+            // 
+            // buttonAddImage
+            // 
+            this.buttonAddImage.Location = new System.Drawing.Point(364, 195);
+            this.buttonAddImage.Name = "buttonAddImage";
+            this.buttonAddImage.Size = new System.Drawing.Size(182, 23);
+            this.buttonAddImage.TabIndex = 48;
+            this.buttonAddImage.Text = "Добавить изображения";
+            this.buttonAddImage.UseVisualStyleBackColor = true;
+            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
+            // 
+            // buttonDeleteImage
+            // 
+            this.buttonDeleteImage.Location = new System.Drawing.Point(364, 226);
+            this.buttonDeleteImage.Name = "buttonDeleteImage";
+            this.buttonDeleteImage.Size = new System.Drawing.Size(182, 23);
+            this.buttonDeleteImage.TabIndex = 49;
+            this.buttonDeleteImage.Text = "Удалить изображение";
+            this.buttonDeleteImage.UseVisualStyleBackColor = true;
+            this.buttonDeleteImage.Click += new System.EventHandler(this.buttonDeleteImage_Click);
+            // 
+            // Cancel
+            // 
+            this.Cancel.Location = new System.Drawing.Point(471, 282);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 23);
+            this.Cancel.TabIndex = 50;
+            this.Cancel.Text = "Отмена";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // AgentEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 326);
+            this.ClientSize = new System.Drawing.Size(558, 320);
+            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.buttonDeleteImage);
+            this.Controls.Add(this.buttonAddImage);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -329,7 +354,6 @@
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.SaveChanges);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -340,7 +364,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxTypeAgent);
             this.Controls.Add(this.textBoxPriority);
-            this.Controls.Add(this.textBoxLogo);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxDirectorName);
@@ -354,6 +377,7 @@
             this.Load += new System.EventHandler(this.AgentEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,7 +386,6 @@
         #endregion
 
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -373,7 +396,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTypeAgent;
         private System.Windows.Forms.TextBox textBoxPriority;
-        private System.Windows.Forms.TextBox textBoxLogo;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.TextBox textBoxDirectorName;
@@ -390,5 +412,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button buttonAddImage;
+        private System.Windows.Forms.Button buttonDeleteImage;
+        private System.Windows.Forms.Button Cancel;
     }
 }

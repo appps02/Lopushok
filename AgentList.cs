@@ -107,7 +107,7 @@ namespace Lopushok
             var senderGrid = sender as DataGridView;
             if (senderGrid.CurrentCell is DataGridViewButtonCell && e.RowIndex >= 0)
             {
-                AgentEdit agentEdit = new AgentEdit(this, dataBase, dataGridView1);
+                AgentEdit agentEdit = new AgentEdit(this, dataBase, dataGridView1, agents);
                 agentEdit.ShowDialog();
             }
         }
