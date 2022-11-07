@@ -116,7 +116,9 @@ namespace Lopushok
             var choice = MessageBox.Show("Вы хотите удалить данный продукт?", "Удаление продукта", MessageBoxButtons.YesNo);
             if (choice == DialogResult.Yes)
             {
-                database.request($"DELETE FROM [Product] WHERE ID = {product.id}");
+                database.request($@" DELETE FROM [ProductSale] WHERE [ProductSale].[ProductID] = {product.id} 
+                DELETE FROM [ProductMaterial] WHERE [ProductMaterial].[ProductID] = {product.id} 
+                DELETE FROM [Product] WHERE ID = {product.id}");
                 MessageBox.Show("Продукт удален");
                 Close();
             }
