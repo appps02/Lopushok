@@ -266,7 +266,8 @@
             this.Controls.Add(this.textBoxName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductAdd";
-            this.Text = "ProductAdd";
+            this.Text = "Лопушок - Добавление продукции";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductAdd_FormClosed);
             this.Load += new System.EventHandler(this.ProductAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.лопушокDataSet)).EndInit();

@@ -55,7 +55,7 @@ namespace Lopushok
                     pictureBox.Image = new Bitmap($@"{openFileDialog.FileName}");
                     filename = openFileDialog.FileName;
                 }
-                catch(System.IO.FileNotFoundException)
+                catch(ArgumentException)
                 {
                     MessageBox.Show("Файл не найден или поврежден");
                     pictureBox.Image = Properties.Resources.picture;
@@ -127,6 +127,11 @@ namespace Lopushok
             {
                 MessageBox.Show("Ошибка:\n" + ex.Message);
             }
+        }
+
+        private void ProductAdd_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
